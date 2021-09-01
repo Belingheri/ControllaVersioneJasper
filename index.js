@@ -4,13 +4,13 @@ const espressioneDiMatch =
 async function startTest() {
   const promiseArray = [];
   try {
-    const files = await readdir(__dirname);
+    const files = await readdir(".\\");
     for (const file of files) {
       if (file.endsWith(".jrxml")) {
         promiseArray.push(
           new Promise(async (resolve, reject) => {
             try {
-              const data = await readFile(`${__dirname}\\${file}`, "utf-8");
+              const data = await readFile(`.\\${file}`, "utf-8");
               if (!data.includes(espressioneDiMatch))
                 reject(`Mancato Versionamento in ${file}`);
               resolve();
