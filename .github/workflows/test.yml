@@ -1,4 +1,4 @@
-name: ControlloVersione
+name: Test
 
 on:
   push:
@@ -24,6 +24,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Test
+      - name: test
         run: |
           node index.js
