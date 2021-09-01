@@ -12,7 +12,7 @@ async function startTest() {
           new Promise(async (resolve, reject) => {
             try {
               console.log(file);
-              const data = await readFile(`.\\${file}`, "utf-8");
+              const data = await readFile(`./${file}`, "utf-8");
               if (!data.includes(espressioneDiMatch))
                 reject(`Mancato Versionamento in ${file}`);
               resolve();
