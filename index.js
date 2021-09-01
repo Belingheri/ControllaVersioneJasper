@@ -5,11 +5,13 @@ async function startTest() {
   const promiseArray = [];
   try {
     const files = await readdir(".\\");
+    console.debug(`Trovati ${files.length} files`);
     for (const file of files) {
       if (file.endsWith(".jrxml")) {
         promiseArray.push(
           new Promise(async (resolve, reject) => {
             try {
+              console.log(file);
               const data = await readFile(`.\\${file}`, "utf-8");
               if (!data.includes(espressioneDiMatch))
                 reject(`Mancato Versionamento in ${file}`);
