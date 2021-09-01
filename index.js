@@ -4,7 +4,7 @@ const espressioneDiMatch =
 async function startTest() {
   const promiseArray = [];
   try {
-    const files = await readdir(".\\");
+    const files = await readdir("./");
     console.debug(`Trovati ${files.length} files`);
     for (const file of files) {
       if (file.endsWith(".jrxml")) {
@@ -24,7 +24,7 @@ async function startTest() {
       }
     }
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 
   return Promise.all(promiseArray);
