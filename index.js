@@ -22,8 +22,8 @@ async function startTest() {
           })
         );
       }
-      console.debug(`Trovati ${jasper} jasper`);
     }
+    console.debug(`Trovati ${jasper} jasper`);
   } catch (error) {
     throw error;
   }
