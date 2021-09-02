@@ -1,6 +1,5 @@
 const { readdir, readFile } = require("fs").promises;
-const espressioneDiMatch =
-  '<parameter name="_VERSIONE" class="java.lang.String"></parameter>';
+const espressioneDiMatch = /W_VERSIONE_\d+\.\d+\.\d+\.\d+/g;
 async function startTest() {
   const promiseArray = [];
   try {
@@ -13,7 +12,7 @@ async function startTest() {
           new Promise(async (resolve, reject) => {
             try {
               const data = await readFile(`./${file}`, "utf-8");
-              if (!data.includes(espressioneDiMatch))
+              if (!espressioneDiMatch.test(data))
                 reject(`Mancato Versionamento in ${file}`);
               resolve();
             } catch (error) {
